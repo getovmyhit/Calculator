@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //numerics
+        //math_operation.text="0"
         btm_0.setOnClickListener {
             if (math_operation.text != "0" )
                 setField("0")
@@ -173,6 +174,13 @@ class MainActivity : AppCompatActivity() {
             result_text.text = ""
         }
         btm_plms.setOnClickListener {
+            /*if (math_operation.text.isEmpty()) {
+                setField("0")
+            }
+            if (math_operation.text=="0")
+            {
+                setField("")
+            }*/
             if(result_text.text.isNotEmpty())
             {
                 math_operation.text=""
