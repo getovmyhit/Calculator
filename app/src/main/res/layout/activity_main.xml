@@ -44,7 +44,7 @@
                 android:text="AC"></TextView>
 
             <TextView
-                android:id="@+id/btm_prnt"
+                android:id="@+id/btm_prsnt"
                 style="@style/ActionButtom"
                 android:text="%"></TextView>
 

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.text.isDigitsOnly
 import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
@@ -14,85 +15,100 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         //numerics
-        //math_operation.text="0"
+        var mat_op = math_operation.text
         btm_0.setOnClickListener {
-            if (math_operation.text != "0" )
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
+                math_operation.text = ""
                 setField("0")
+            }
+
             else{
-                setField("")
+                setField("0")
             }
         }
         btm_1.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("1")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("1")
             }
+            else
+                setField("1")
         }
         btm_2.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("2")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("2")
             }
-        }
+            else
+                setField("2")
+            }
+
         btm_3.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("3")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("3")
             }
+            else
+                setField("3")
         }
         btm_4.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("4")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("4")
             }
+            else
+                setField("4")
         }
         btm_5.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("5")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("5")
             }
+            else
+                setField("5")
         }
         btm_6.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("6")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("6")
             }
+            else
+                setField("6")
         }
         btm_7.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("7")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("7")
             }
+            else
+                setField("7")
+
         }
         btm_8.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("8")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("8")
             }
+            else
+                setField("8")
         }
         btm_9.setOnClickListener {
-            if (math_operation.text != "0")
-                setField("9")
-            else {
+            if (mat_op.equals('0') && mat_op.length == 1)
+            {
                 math_operation.text = ""
                 setField("9")
             }
+            else
+                setField("9")
         }
         //operation
         btm_pls.setOnClickListener {
@@ -164,24 +180,26 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+        btm_prsnt.setOnClickListener {
+            Toast.makeText(this, math_operation.text, Toast.LENGTH_LONG).show()
+        }
         btm_bck.setOnClickListener {
             val str = math_operation.text.toString()
-            if (str == "0" || str.isEmpty()) {
-                setField("0")
-            } else {
+            if (str.length==1|| str.isEmpty() ) {
+                math_operation.text = "0"
+            }
+                else {
                 math_operation.text = str.substring(0, str.length - 1)
             }
             result_text.text = ""
-        }
+        } //vse zbs
         btm_plms.setOnClickListener {
-            /*if (math_operation.text.isEmpty()) {
-                setField("0")
-            }
-            if (math_operation.text=="0")
+           if (math_operation.text == "0" || result_text.text == "0")
             {
-                setField("")
-            }*/
-            if(result_text.text.isNotEmpty())
+                }
+            else
+           {
+                if(result_text.text.isNotEmpty())
             {
                 math_operation.text=""
                 math_operation.text = result_text.text
@@ -199,7 +217,7 @@ class MainActivity : AppCompatActivity() {
                 val rezzzpm = "-" + resplms
                 math_operation.text=""
                 setField(rezzzpm)
-            }
+            }}
         } //vse zbs
         btm_eq.setOnClickListener {
             try {
@@ -208,10 +226,8 @@ class MainActivity : AppCompatActivity() {
                 val longRes = rez.toLong()
                 if (rez == longRes.toDouble()) {
                     result_text.text = longRes.toString()
-                   // math_operation.text = "???"
                 } else {
                     result_text.text = rez.toString()
-                   // math_operation.text = "???"
                 }
 
             } catch (e: Exception) {
@@ -221,7 +237,7 @@ class MainActivity : AppCompatActivity() {
                     result_text.text =e.message
                 }
             }
-        }
+        } //vse zbs
         btm_clr.setOnClickListener {
             math_operation.text = "0"
             result_text.text = ""
@@ -234,11 +250,11 @@ class MainActivity : AppCompatActivity() {
             result_text.text = ""
         }
         math_operation.append(str)
-
-        if (math_operation.text.length >=1 && math_operation.text[0]=='0') {
+/*math_operation.text[0]=='0'*/
+     /*   if (math_operation.text.length >=1 && math_operation.text == "00.") {
             val dropz = math_operation.text.drop(1)
             math_operation.text = dropz.toString()
-        }
+        }*/
     }
 
 }
