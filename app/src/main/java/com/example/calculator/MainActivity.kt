@@ -3,12 +3,10 @@ package com.example.calculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
-import org.w3c.dom.Text
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,7 +72,6 @@ class MainActivity : AppCompatActivity() {
             else {
                 setFieldz(".")
             }
-
         } //problema s tochkoi
         btm_prsnt.setOnClickListener {
             Toast.makeText(this,
